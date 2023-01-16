@@ -55,4 +55,90 @@
 
 - 페이스북 개발 팀은 이를 해결하기 위해 기존 뷰를 날려 버리고 처음부터 새로 렌더링하는 방식을 고안
 
-- 
+01/16
+
+#### 컴포넌트
+
+- 사용자 정의 태그(<>)
+
+- 가독성, 재사용성, 유지보수 ↑
+
+
+
+# 리액트 시작해보기
+
+#### 공식문서
+
+- https://ko.reactjs.org/docs/getting-started.html
+
+- codesandbox
+  
+  - 온라인 상에서 리액트 애플리케이션을 적용해볼 수 있음
+
+- add React to and HTML in on minute
+
+- toolchain
+  
+  - 유용한 기능들을 제공
+
+- node.js 설치
+  
+  - cmd에서 설치 확인
+    
+    ```
+    npm -v
+    ```
+
+- react 설치( 권한 에러인 경우 sudo를 붙임 )
+  
+  ```
+  npm install -g create-react-app 
+  sudo npm install -g create-react-app
+  ```
+
+- react 설치 확인
+  
+  ```
+  create-react-app -V
+  ```
+
+- 공식 문서에서는 npm보단 npx를 권장
+  
+  - npx 는 임시로 설치 후 사용하고 지우는 프로그램이라고 이해
+    
+    - 최신 버전을 항시 사용가능
+    
+    - 리소스 사용이 적음
+
+#### 리액트 환경설정
+
+- cmd 창에서 cd (원하는 디렉토리를 드래그 앤 드롭)
+
+- 해당 디렉토리에 react app create
+  
+  ```
+  create-react-app .
+  ```
+
+#### 리액트 시작
+
+- vs code 에서 ctrl + ` 로 terminal 창 열기
+  
+  ```
+  npm (run) start
+  ```
+
+- 해당 메세지와 창이 뜸
+  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-16-20-13-24-image.png)
+
+- 서버를 종료할 시 커맨드 창에 ctrl + c 
+
+- public 디렉토리 안에 index.html
+  
+  - root 태그안에 src 디렉토리 안에 있는 컴포넌트들이 담김
+    ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-16-20-16-57-image.png)
+  
+  - src 의 index.js
+    ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-16-20-19-50-image.png)
+    
+    root 태그를 불러오는것을 볼 수 있음
