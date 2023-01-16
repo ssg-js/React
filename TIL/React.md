@@ -63,8 +63,6 @@
 
 - 가독성, 재사용성, 유지보수 ↑
 
-
-
 # 리액트 시작해보기
 
 #### 공식문서
@@ -142,3 +140,5 @@
     ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-16-20-19-50-image.png)
     
     root 태그를 불러오는것을 볼 수 있음
+
+[React - 7. JS 코딩하는 법 - YouTube](https://youtu.be/LEPiRfPD9Uw?list=PLuHgQVnccGMCRv6f8H9K5Xwsdyg4sFSdi&t=214)
