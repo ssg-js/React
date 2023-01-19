@@ -59,7 +59,7 @@
 
 #### 컴포넌트
 
-- 사용자 정의 태그(<>)
+- **사용자 정의 태그**(<>)
 
 - 가독성, 재사용성, 유지보수 ↑
 
@@ -131,14 +131,211 @@
 
 - 서버를 종료할 시 커맨드 창에 ctrl + c 
 
-- public 디렉토리 안에 index.html
+- public 디렉토리 안에 **index.html**
   
-  - root 태그안에 src 디렉토리 안에 있는 컴포넌트들이 담김
+  - **root 태그**안에 src 디렉토리 안에 있는 컴포넌트들이 담김
     ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-16-20-16-57-image.png)
   
-  - src 의 index.js
+  - src 의 **index.js** 
     ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-16-20-19-50-image.png)
     
     root 태그를 불러오는것을 볼 수 있음
 
-[React - 7. JS 코딩하는 법 - YouTube](https://youtu.be/LEPiRfPD9Uw?list=PLuHgQVnccGMCRv6f8H9K5Xwsdyg4sFSdi&t=214)
+#### index.js
+
+- 여러가지 전역설정이 들어감
+
+#### app.js
+
+- 출력되는 기본 화면
+
+#### 컴포넌트 (사용자 정의 태그)
+
+- **반드시 대문자**로 시작해야함
+
+- 소문자 태그는 html 태그
+
+#### props
+
+- react 의 속성 (title, 등 태그의 속성)
+  
+  ```javascript
+  function Header(props) {
+      console.log('props', props, props.title);
+      return <header>
+      <h1><a href="/">{props.title}</a></h1>
+      </header>
+  }
+  
+  function App(){
+      return (
+          <div>
+              <Header title="REACT"></Header>
+          </div>
+      )
+  }
+  ```
+
+- [React 2022년 개정판 - 5. props - YouTube](https://youtu.be/t9e3hMJ_s-c?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&t=244)
+
+#### 표현식
+
+- {} 안에 내용을 해석해서 표현됨
+
+#### 목록만들기
+
+- 반복되는 형태를 일일히 입력하기 힘듬
+  
+  ```javascript
+  function Nav(props) {
+      const lis = []
+      for(let i=0; i<props.topics.length; i++){
+      let t = props.topics[i];
+      lis.push(<li key={t.id}><a href={'/read/'+t.id}>{t.title}</a></li>)
+      }
+      return <nav>
+          <ol>
+              {lis}
+          </ol>
+      </nav>
+  }
+  function App(){
+      const topics = {
+          {id:1, title:'html', body:'html is ...'},
+          {id:2, title:'css', body:'css is ...'},
+          {id:3, title:'javascript', body:'javascript is ...'}
+      }
+      return (
+          <div>
+              <Header title="REACT"></Header>
+          </div>
+      )
+  }
+  ```
+
+#### 이벤트
+
+- 클릭 이벤트 발생 시
+
+- onClick={funtion(event){}} -> vue에서 ""를 쓰는것과 다름
+
+- event.preventDefault() -> default 태그(여기선 a태그)의 기본동작 즉, 리로드가 발생하지 않음 
+  
+  ```js
+  function Header(props) {
+      console.log('props', props, props.title);
+      return <header>
+      <h1><a href="/" onClick={function(event){
+          event.preventDefault();
+          props.onChangeMode();
+      }}>{props.title}</a></h1>
+      </header>
+  }
+  
+  function App() {
+      const topics = [
+          {id:1, title:'html', body:'html is ...'},
+          {id:2, title:'css', body:'css is ...'},
+          {id:3, title:'javascript', body:'javascript is ...'}
+      ]
+      return (
+          <div>
+              <Header title="REACT" onChangeMode={function(){
+                  alert('Header')
+              }}></Header>
+          </div>
+      )
+  }
+  ```
+
+- arrow function
+  
+  ```javascript
+  function Nav(props) {
+      const lis = []
+      for(let i=0; i<props.topics.length; i++){
+          let t = props.topics[i];
+          lis.push(<li key={t.id}>
+          <a id={t.id} href={'/read/'+t.id} onClick={(event)=>{
+              event.preventDefault();
+              props.onChangeMode(event.target.id);
+          }}>{t.title}</a>
+          </li>)
+      }
+      return <nav>
+          <ol>
+              {lis}
+          </ol>
+      </nav>
+  }
+  
+  function App() {
+      return (
+          <div>
+              <Header title="REACT" onChangeMode={()=>{alert('Header')}}></Header>
+              <Nav topics={topics} onChangeMode={(id)=>{alert(id);}}></Nav>
+          </div>
+      )
+  }
+  ```
+
+#### State
+
+- 컴포넌트의 입력과 출력은 props과 return
+
+- props과 같이 컴포넌트 함수를 이용하여 return 값을 만듬
+
+- prop과 비슷하지만 prop은 사용하는 외부자를 위한 데이터고, state는 component를 만드는 내부자를 위한 것
+  
+  ```javascript
+  function App() {
+      const mode = 'WELCOME';
+      const topics = [
+          {id:1, title:'html', body:'html is ...'},
+          {id:2, title:'css', body:'css is ...'},
+          {id:3, title:'javascript', body:'javascript is ...'}
+      ]
+      let content = null;
+      if(mode === 'WELCOME'){
+          content = <Article title = "Welcome" body="Hello, WEB"></Article>
+      } else if(mode === 'READ'){
+          content = <Article title="Read" body="Hello, Read"></Article>
+      }
+      return (
+          <div>
+              <Header title="WEB" onChangeMode={()=>{
+                  mode = 'WELCOME';
+              }}></Header>
+              <Nav topics={topics} onChangeMode={(id)=>{
+                  mode = 'READ';
+              }}></Nav>
+              {content}
+          </div>
+      )
+  }
+  ```
+
+- mode값을 변경해도 content가 변하지 않음
+  -> App 함수를 다시 실행시키지 않았기 때문에 return값에는 변화가 없음
+  -> state가 필요한 부분
+  -> 우리가 원하는 건 mode가 변하면 content가 변해서 새로 return 되는 것
+
+- **useState** 라는 **Hook**을 사용해야함
+  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-16-16-11-image.png)
+
+#### useState
+
+- useState는 초기값을 0번째 인덱스로 줌
+
+- state의 값을 바꿀 때는 1번째 인덱스의 함수로 바꿈
+  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-04-14-image.png)
+  ==
+  
+  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-05-33-image.png)
+  
+  
+  
+  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-09-52-image.png)
+  
+  ->
+  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-10-54-image.png)
