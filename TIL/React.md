@@ -328,14 +328,17 @@
 - useState는 초기값을 0번째 인덱스로 줌
 
 - state의 값을 바꿀 때는 1번째 인덱스의 함수로 바꿈
+  
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-04-14-image.png)
   ==
   
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-05-33-image.png)
-  
-  
-  
+
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-09-52-image.png)
-  
+
   ->
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-10-54-image.png)
+
+
+
+[React 2022년 개정판 - 7. state - YouTube](https://youtu.be/vmunrKR0uOU?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&t=620)[React 2022년 개정판 - 7. state - YouTube](https://youtu.be/vmunrKR0uOU?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&t=620)
