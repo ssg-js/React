@@ -333,12 +333,32 @@
   ==
   
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-05-33-image.png)
-
+  
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-09-52-image.png)
-
+  
   ->
   ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-17-10-54-image.png)
 
+- 다른 Nav 를 선택하면 id값에 따라 body 정보를 가져와  출력해보기
+  ![](React/2023-01-20-10-58-15-image.png)
+  ![](React/2023-01-20-10-58-41-image.png)
 
+- 하지만 바뀌지 않음 
 
-[React 2022년 개정판 - 7. state - YouTube](https://youtu.be/vmunrKR0uOU?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&t=620)[React 2022년 개정판 - 7. state - YouTube](https://youtu.be/vmunrKR0uOU?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&t=620)
+- - console로 id를 출력해보면 setId -> app의 nav -> nav 컴포넌트를 보면 a 태그의 속성값 id를 가져오는데 속성값은 문자열이라서 숫자로 바꿔줘야함
+    ![](React/2023-01-20-11-01-46-image.png)
+    ->
+    
+    ![](React/2023-01-20-11-02-16-image.png)
+
+#### create
+
+- create 클릭 시 페이지가 넘어가는게 아니라 ui 화면만 바뀌도록 만들 예정
+
+- app 컴포넌트
+  ![](React/2023-01-20-11-24-51-image.png)
+  ![](React/2023-01-20-11-25-25-image.png)
+
+- create 컴포넌트 생성
+  ![](React/2023-01-20-12-57-00-image.png)
+  **꿀팁!!** 블록 설정 후 ctrl + shift + p를 누르고 emmet : wrap with abbreviation 누르면 원하는 태그로 랩핑 가능
