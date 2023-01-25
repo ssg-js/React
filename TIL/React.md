@@ -362,3 +362,7 @@
 - create 컴포넌트 생성
   ![](React/2023-01-20-12-57-00-image.png)
   **꿀팁!!** 블록 설정 후 ctrl + shift + p를 누르고 emmet : wrap with abbreviation 누르면 원하는 태그로 랩핑 가능
+
+#### update
+
+- updata = create + read
